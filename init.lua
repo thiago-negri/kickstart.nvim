@@ -391,6 +391,8 @@ require('lazy').setup({
             'node_modules',
             'mysql%-data',
             'package%-lock.json',
+            'build',
+            'dist',
           },
           -- mappings = {
           --   i = { ['<c-enter>'] = 'to_fuzzy_refine' },
@@ -635,6 +637,7 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         ts_ls = {},
         --
+        csharp_ls = {},
 
         lua_ls = {
           -- cmd = {...},
@@ -721,7 +724,8 @@ require('lazy').setup({
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'prettierd', 'prettier', stop_after_first = true },
+        typescript = { 'prettierd', 'prettier', stop_after_first = true },
       },
     },
   },
