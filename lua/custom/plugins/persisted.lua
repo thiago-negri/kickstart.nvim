@@ -3,8 +3,9 @@ return {
   {
     'olimorris/persisted.nvim',
     lazy = false,
-    config = function()
-      require('persisted').setup()
-    end,
+    opts = {
+      autostart = true,
+      use_git_branch = false,
+    },
   },
 }
