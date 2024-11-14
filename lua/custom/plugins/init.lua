@@ -3,6 +3,9 @@
 --
 -- See the kickstart.nvim README for more information
 
+-- Notes file
+vim.keymap.set('n', '<leader>N', '<CMD>:e ~/notes.md<CR>', { desc = 'Open [N]otes' })
+
 -- Tabs
 vim.keymap.set('n', '<leader><tab>', '<CMD>tabn<CR>', { desc = 'Next [Tab]' })
 vim.keymap.set('n', '<leader><S-tab>', '<CMD>tabp<CR>', { desc = 'Previous [Tab]' })
