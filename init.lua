@@ -670,6 +670,16 @@ require('lazy').setup({
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
+      -- TNEGRI: Custom built ZLS because Mason has 0.13 and I'm using master (0.14)
+      -- 0.13 doesn't have labeled switches (noticed on ziglings 108)
+      -- Only add it to the table after Mason 'ensure installed' above, so we don't
+      -- install ZLS from Mason
+      if vim.loop.os_uname().sysname == 'Windows_NT' then
+        servers.zls = {
+          cmd = { 'C:\\Projetos\\zig\\zls\\zig-out\\bin\\zls.exe' },
+        }
+      end
+
       require('mason-lspconfig').setup {
         handlers = {
           function(server_name)
