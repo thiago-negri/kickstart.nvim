@@ -2,7 +2,7 @@ return {
   {
     'rebelot/kanagawa.nvim',
     opts = {},
-    config = function()
+    init = function()
       vim.cmd.colorscheme 'kanagawa'
     end,
   },
