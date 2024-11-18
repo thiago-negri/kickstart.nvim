@@ -317,7 +317,6 @@ require('lazy').setup({
 
       -- Document existing key chains
       spec = {
-        { '<leader>n', group = 'No [N]eck Pain', mode = { 'n' } },
         { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
         { '<leader>d', group = '[D]ocument' },
         { '<leader>r', group = '[R]ename' },
@@ -325,6 +324,10 @@ require('lazy').setup({
         { '<leader>w', group = '[W]orkspace' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        -- TNEGRI: Custom which-key root
+        { '<leader>n', group = 'No [N]eck Pain', mode = { 'n' } },
+        { '<leader>k', group = '[K]ill (Close)', mode = { 'n' } },
+        { '<leader>o', group = '[O]pen (New)', mode = { 'n' } },
       },
     },
   },
