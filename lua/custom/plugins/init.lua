@@ -25,4 +25,8 @@ map('n', '<A-]>', '<CMD>:cn<CR>', { desc = 'Next Quickfix' })
 map('n', '<A-\\>', '<CMD>:ccl<CR>', { desc = 'Close Quickfix' })
 map('n', '<A-|>', '<CMD>:cope<CR>', { desc = 'Open Quickfix' })
 
+-- Center screen on C-d and C-u
+map('n', '<C-d>', '<C-d>zz')
+map('n', '<C-u>', '<C-u>zz')
+
 return {}
