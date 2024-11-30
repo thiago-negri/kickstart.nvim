@@ -5,7 +5,7 @@ return {
 
     ---@type NoNeckPain.options
     opts = {
-      width = 110,
+      width = 130,
       autocmds = {
         enableOnVimEnter = true,
         skipEnteringNoNeckPainBuffer = true,
