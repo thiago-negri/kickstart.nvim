@@ -152,10 +152,10 @@ vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.inccommand = 'split'
 
 -- Show which line your cursor is on
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
+vim.opt.scrolloff = 15
 
 -- Show ruler at column 120
 vim.opt.colorcolumn = '120'
@@ -647,7 +647,7 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         ts_ls = {},
         --
-        csharp_ls = {},
+        -- csharp_ls = {},
 
         lua_ls = {
           -- cmd = {...},
