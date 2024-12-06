@@ -13,6 +13,9 @@ local map = vim.keymap.set
 -- map('n', '<S-tab>', '<CMD>:bp<CR>', { desc = 'Previous Buffer' })
 -- map('n', '<leader>kb', '<CMD>:bdel<CR>', { desc = 'Kill [B]uffer' })
 
+-- Sort paragraph
+map('n', '<leader>Sip', 'vip:sort i<CR>', { desc = '[S]ort [I]nside [P]aragraph' })
+
 -- Tabs
 map('n', '<leader><tab>', '<CMD>tabn<CR>', { desc = 'Next [Tab]' })
 map('n', '<leader><S-tab>', '<CMD>tabp<CR>', { desc = 'Previous [Tab]' })
