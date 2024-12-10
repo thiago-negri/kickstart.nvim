@@ -17,6 +17,8 @@ return {
           },
         },
       },
+      commentStyle = { italic = false },
+      keywordStyle = { italic = false },
       overrides = function(colors)
         local theme = colors.theme
         return {
@@ -27,6 +29,7 @@ return {
           TelescopeResultsBorder = { fg = theme.ui.bg_m1, bg = theme.ui.bg_m1 },
           TelescopePreviewNormal = { bg = theme.ui.bg_dim },
           TelescopePreviewBorder = { bg = theme.ui.bg_dim, fg = theme.ui.bg_dim },
+          ['@variable.builtin'] = { italic = false },
         }
       end,
     },
