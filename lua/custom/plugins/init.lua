@@ -3,6 +3,8 @@
 --
 -- See the kickstart.nvim README for more information
 
+vim.opt.shiftwidth = 4
+
 local map = vim.keymap.set
 
 -- Notes file
