@@ -17,6 +17,7 @@ return {
           },
         },
       },
+      statementStyle = { bold = false },
       commentStyle = { italic = false },
       keywordStyle = { italic = false },
       overrides = function(colors)
