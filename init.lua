@@ -99,25 +99,25 @@ vim.g.have_nerd_font = true
 --  For more options, you can see `:help option-list`
 
 -- Make line numbers default
-vim.opt.number = true
+--vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
-vim.opt.relativenumber = true
+--vim.opt.relativenumber = true
 -- TNEGRI: Disable relative line numbers when out of focus
-vim.api.nvim_create_autocmd('FocusLost', {
-  desc = 'Disable relative line numbers when out of focus',
-  group = vim.api.nvim_create_augroup('relativenumber-focus-lost', { clear = true }),
-  callback = function()
-    vim.opt.relativenumber = false
-  end,
-})
-vim.api.nvim_create_autocmd('FocusGained', {
-  desc = 'Enable relative line numbers when in focus',
-  group = vim.api.nvim_create_augroup('relativenumber-focus-gained', { clear = true }),
-  callback = function()
-    vim.opt.relativenumber = true
-  end,
-})
+--vim.api.nvim_create_autocmd('FocusLost', {
+--  desc = 'Disable relative line numbers when out of focus',
+--  group = vim.api.nvim_create_augroup('relativenumber-focus-lost', { clear = true }),
+--  callback = function()
+--    vim.opt.relativenumber = false
+--  end,
+--})
+--vim.api.nvim_create_autocmd('FocusGained', {
+--  desc = 'Enable relative line numbers when in focus',
+--  group = vim.api.nvim_create_augroup('relativenumber-focus-gained', { clear = true }),
+--  callback = function()
+--    vim.opt.relativenumber = true
+--  end,
+--})
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
@@ -173,7 +173,7 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 15
 
 -- Show ruler at column 120
-vim.opt.colorcolumn = '120'
+-- vim.opt.colorcolumn = '120'
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -218,7 +218,8 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
-    vim.highlight.on_yank()
+    -- TNEGRI: Shorter timeout
+    vim.highlight.on_yank { timeout = 100 }
   end,
 })
 
@@ -914,28 +915,28 @@ require('lazy').setup({
   -- },
 
   -- Highlight todo, notes, etc in comments
-  {
-    'folke/todo-comments.nvim',
-    event = 'VimEnter',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    opts = {
-      signs = false,
-      keywords = {
-        FIX = {
-          icon = ' ', -- icon used for the sign, and in search results
-          color = 'error', -- can be a hex color, or a named color (see below)
-          alt = { 'FIXME', 'BUG', 'FIXIT', 'ISSUE' }, -- a set of other keywords that all map to this FIX keywords
-          -- signs = false, -- configure signs for some keywords individually
-        },
-        TODO = { icon = ' ', color = 'info' },
-        HACK = { icon = ' ', color = 'warning' },
-        WARN = { icon = ' ', color = 'warning', alt = { 'WARNING', 'XXX' } },
-        PERF = { icon = ' ', alt = { 'OPTIM', 'PERFORMANCE', 'OPTIMIZE' } },
-        NOTE = { icon = ' ', color = 'hint', alt = { 'INFO', 'TNEGRI' } },
-        TEST = { icon = '⏲ ', color = 'test', alt = { 'TESTING', 'PASSED', 'FAILED' } },
-      },
-    },
-  },
+  -- {
+  --   'folke/todo-comments.nvim',
+  --   event = 'VimEnter',
+  --   dependencies = { 'nvim-lua/plenary.nvim' },
+  --   opts = {
+  --     signs = false,
+  --     keywords = {
+  --       FIX = {
+  --         icon = ' ', -- icon used for the sign, and in search results
+  --         color = 'error', -- can be a hex color, or a named color (see below)
+  --         alt = { 'FIXME', 'BUG', 'FIXIT', 'ISSUE' }, -- a set of other keywords that all map to this FIX keywords
+  --         -- signs = false, -- configure signs for some keywords individually
+  --       },
+  --       TODO = { icon = ' ', color = 'info' },
+  --       HACK = { icon = ' ', color = 'warning' },
+  --       WARN = { icon = ' ', color = 'warning', alt = { 'WARNING', 'XXX' } },
+  --       PERF = { icon = ' ', alt = { 'OPTIM', 'PERFORMANCE', 'OPTIMIZE' } },
+  --       NOTE = { icon = ' ', color = 'hint', alt = { 'INFO', 'TNEGRI' } },
+  --       TEST = { icon = '⏲ ', color = 'test', alt = { 'TESTING', 'PASSED', 'FAILED' } },
+  --     },
+  --   },
+  -- },
 
   { -- Collection of various small independent plugins/modules
     'echasnovski/mini.nvim',
