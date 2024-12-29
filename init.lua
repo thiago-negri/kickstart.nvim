@@ -217,18 +217,18 @@ require('lazy').setup({
     },
     config = function()
       require('telescope').setup {
-        defaults = { },
+        defaults = {},
         pickers = {
           buffers = { theme = 'ivy' },
-          find_files = { theme = 'ivy' },
+          find_files = { theme = 'ivy', disable_devicons = true },
           help_tags = { theme = 'ivy' },
           keymaps = { theme = 'ivy' },
           builtin = { theme = 'ivy' },
-          grep_string = { theme = 'ivy' },
-          live_grep = { theme = 'ivy' },
+          grep_string = { theme = 'ivy', disable_devicons = true },
+          live_grep = { theme = 'ivy', disable_devicons = true },
           diagnostics = { theme = 'ivy' },
           resume = { theme = 'ivy' },
-          oldfiles = { theme = 'ivy' },
+          oldfiles = { theme = 'ivy', disable_devicons = true },
         },
       }
 
