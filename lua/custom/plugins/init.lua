@@ -10,6 +10,9 @@ vim.opt.expandtab = true
 vim.opt.guicursor = 'a:block-nCursor'
 vim.opt.laststatus = 0
 
+-- Force use '/' as path separator, because we're running vim inside msys
+vim.opt.shellslash = true
+
 local map = vim.keymap.set
 
 -- Notes file

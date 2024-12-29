@@ -217,10 +217,14 @@ require('lazy').setup({
     },
     config = function()
       require('telescope').setup {
-        defaults = {},
+        defaults = {
+          border = false,
+          path_display = truncate,
+          preview = false,
+        },
         pickers = {
-          buffers = { theme = 'ivy' },
-          find_files = { theme = 'ivy', disable_devicons = true },
+          buffers = { theme = 'ivy', layout_config = { height = 10 } },
+          find_files = { theme = 'ivy', disable_devicons = true, layout_config = { height = 10 } },
           help_tags = { theme = 'ivy' },
           keymaps = { theme = 'ivy' },
           builtin = { theme = 'ivy' },
@@ -228,7 +232,7 @@ require('lazy').setup({
           live_grep = { theme = 'ivy', disable_devicons = true },
           diagnostics = { theme = 'ivy' },
           resume = { theme = 'ivy' },
-          oldfiles = { theme = 'ivy', disable_devicons = true },
+          oldfiles = { theme = 'ivy', disable_devicons = true, layout_config = { height = 10 } },
         },
       }
 
@@ -840,9 +844,22 @@ require('lazy').setup({
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
-    -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ensure_installed = {
+        'bash',
+        'c',
+        'diff',
+        'html',
+        'lua',
+        'luadoc',
+        'markdown',
+        'markdown_inline',
+        'query',
+        'vim',
+        'vimdoc',
+        'typescript',
+        'zig',
+      },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
