@@ -3,7 +3,12 @@
 --
 -- See the kickstart.nvim README for more information
 
+vim.opt.tabstop = 8
 vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true
+vim.opt.guicursor = 'a:block-nCursor'
+vim.opt.laststatus = 0
 
 local map = vim.keymap.set
 
@@ -31,18 +36,37 @@ map('n', '<A-/>', '<CMD>:ccl<CR>', { desc = 'Close Quickfix' })
 map('n', '<A-?>', '<CMD>:cope<CR>', { desc = 'Open Quickfix' })
 
 -- Center screen on C-d and C-u
-map('n', '<C-d>', '<C-d>zz')
-map('n', '<C-u>', '<C-u>zz')
+map('n', '<C-d>', '<C-d>zt')
+map('n', '<C-u>', '<C-u>zb')
+map('n', 'G', 'Gzb')
+map('n', 'n', 'nzz')
+map('n', 'N', 'Nzz')
+map('n', '*', '*zz')
+map('n', '#', '#zz')
+map('n', 'g*', 'g*zz')
+map('n', 'g#', 'g#zz')
 
 -- Duplicate a line and comment out the first line
 map("n", "yc", "yy<CMD>normal gcc<CR>p")
 
--- Move selected lines with J or K on Visual mode
-map("v", "J", ":m '>+1<CR>gv=gv")
-map("v", "K", ":m '<-2<CR>gv=gv")
-
 -- Home/End as H and L
 map("n", "H", "^")
 map("n", "L", "$")
+map("v", "H", "^")
+map("v", "L", "$")
+
+-- Copy current file path to system's clipboard (bc = buffer copy)
+map("n", "<leader>bc", "<cmd>let @*=@%<cr><cmd>echo 'Copied file path: ' . @%<cr>")
+
+-- Show TS highlight info under cursor
+map('n', '<F4>', '<cmd>Inspect<cr>')
+
+-- Git Commit overrides
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+  pattern = {
+    "*.git/COMMIT_EDITMSG",
+  },
+  command = "set cc=50,72",
+})
 
 return {}
