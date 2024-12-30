@@ -11,7 +11,9 @@ vim.opt.guicursor = 'a:block-nCursor'
 vim.opt.laststatus = 0
 
 -- Force use '/' as path separator, because we're running vim inside msys
-vim.opt.shellslash = true
+if vim.loop.os_uname().sysname == 'Windows_NT' then
+  vim.opt.shellslash = true
+end
 
 local map = vim.keymap.set
 
