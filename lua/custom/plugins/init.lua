@@ -67,6 +67,9 @@ map("n", "<leader>bc", "<cmd>let @*=@%<cr><cmd>echo 'Copied file path: ' . @%<cr
 -- Show TS highlight info under cursor
 map('n', '<F4>', '<cmd>Inspect<cr>')
 
+-- F5 to compile
+map('n', '<F5>', '<cmd>make<cr>')
+
 -- Git Commit overrides
 vim.api.nvim_create_autocmd({ "BufEnter" }, {
   pattern = {
@@ -75,4 +78,23 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
   command = "set cc=50,72",
 })
 
+-- Create an augroup for TypeScript compilation settings
+vim.api.nvim_create_augroup('tsc_comp', { clear = true })
+
+-- Define an autocmd for TypeScript file types
+vim.api.nvim_create_autocmd('FileType', {
+  group = 'tsc_comp',
+  pattern = { 'typescript' },
+  callback = function()
+    -- Set the compiler to tsc and the makeprg to npx tsc with desired options
+    vim.cmd('compiler tsc')
+    vim.opt_local.makeprg = 'npx tsc --noEmit --pretty false'
+  end,
+})
+
+-- Load project rc files, but secure
+vim.o.exrc = true
+vim.o.secure = true
+
 return {}
+
