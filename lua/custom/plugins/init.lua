@@ -9,7 +9,7 @@ vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.opt.guicursor = 'a:block-nCursor'
 vim.opt.laststatus = 0
-vim.opt.colorcolumn = '80'
+-- vim.opt.colorcolumn = '80'
 
 -- Force use '/' as path separator, because we're running vim inside msys
 if vim.loop.os_uname().sysname == 'Windows_NT' then

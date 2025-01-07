@@ -218,10 +218,12 @@ require('lazy').setup({
       require('telescope').setup {
         defaults = {
           border = false,
-          path_display = truncate,
+          path_display = 'truncate',
           preview = false,
+          theme = 'ivy',
         },
         pickers = {
+          lsp_references = { theme = 'ivy' },
           buffers = { theme = 'ivy', layout_config = { height = 10 } },
           find_files = { theme = 'ivy', disable_devicons = true, layout_config = { height = 10 } },
           help_tags = { theme = 'ivy' },
