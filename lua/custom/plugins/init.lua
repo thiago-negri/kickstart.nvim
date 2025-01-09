@@ -36,10 +36,10 @@ map('n', '<leader>o<tab>', '<CMD>tabnew<CR>', { desc = 'Open New [Tab]' })
 map('n', '<leader>k<tab>', '<CMD>tabclose<CR>', { desc = 'Kill [Tab]' })
 
 -- Quickfix navigation
-map('n', '<A-,>', '<CMD>:cp<CR>', { desc = 'Previous Quickfix' })
-map('n', '<A-.>', '<CMD>:cn<CR>', { desc = 'Next Quickfix' })
-map('n', '<A-/>', '<CMD>:ccl<CR>', { desc = 'Close Quickfix' })
-map('n', '<A-?>', '<CMD>:cope<CR>', { desc = 'Open Quickfix' })
+map('n', '<A-,>', '<CMD>cp<CR>zz', { desc = 'Previous Quickfix' })
+map('n', '<A-.>', '<CMD>cn<CR>zz', { desc = 'Next Quickfix' })
+map('n', '<A-/>', '<CMD>ccl<CR>', { desc = 'Close Quickfix' })
+map('n', '<A-?>', '<CMD>cope<CR>', { desc = 'Open Quickfix' })
 
 -- Center screen on C-d and C-u
 map('n', '<C-d>', '<C-d>zt')
