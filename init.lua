@@ -658,8 +658,8 @@ require('lazy').setup({
           -- Manually trigger a completion from nvim-cmp.
           --  Generally you don't need this, because nvim-cmp will display
           --  completions whenever it has completion options available.
-          -- TNEGRI: Offer autocomplete when I press C-;
-          ['<C-;>'] = cmp.mapping.complete {},
+          -- TNEGRI: Offer autocomplete when I press C-j
+          ['<C-j>'] = cmp.mapping.complete {},
 
           -- Think of <c-l> as moving to the right of your snippet expansion.
           --  So if you have a snippet that's like:
