@@ -81,16 +81,18 @@ vim.api.nvim_create_autocmd({ "BufEnter" }, {
 -- Create an augroup for TypeScript compilation settings
 vim.api.nvim_create_augroup('tsc_comp', { clear = true })
 
--- Define an autocmd for TypeScript file types
-vim.api.nvim_create_autocmd('FileType', {
-  group = 'tsc_comp',
-  pattern = { 'typescript' },
-  callback = function()
-    -- Set the compiler to tsc and the makeprg to npx tsc with desired options
-    vim.cmd('compiler tsc')
-    vim.opt_local.makeprg = 'npx tsc --noEmit --pretty false'
-  end,
-})
+-- !! Use .nvim.lua in project roon
+--
+-- -- Define an autocmd for TypeScript file types
+-- vim.api.nvim_create_autocmd('FileType', {
+--   group = 'tsc_comp',
+--   pattern = { 'typescript' },
+--   callback = function()
+--     -- Set the compiler to tsc and the makeprg to npx tsc with desired options
+--     vim.cmd('compiler tsc')
+--     vim.opt_local.makeprg = 'npx tsc --noEmit --pretty false'
+--   end,
+-- })
 
 -- Load project rc files, but secure
 vim.o.exrc = true
