@@ -3,9 +3,16 @@ return {
     'NStefan002/screenkey.nvim',
     lazy = false,
     version = '*', -- or branch = "dev", to use the latest commit
-    config = {
+    opts = {
       win_opts = {
-        row = vim.o.lines - vim.o.cmdheight - 14,
+        --
+        -- With cam:
+        -- row = vim.o.lines - vim.o.cmdheight - 14,
+        --
+        -- Without cam:
+        row = vim.o.lines - vim.o.cmdheight,
+        --
+        --
         col = vim.o.columns,
         relative = 'editor',
         anchor = 'SE',
