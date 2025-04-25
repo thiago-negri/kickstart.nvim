@@ -227,7 +227,7 @@ require('lazy').setup({
           theme = 'ivy',
         },
         pickers = {
-          lsp_references = { theme = 'ivy' },
+          lsp_references = { theme = 'ivy', preview = true },
           buffers = { theme = 'ivy', layout_config = { height = 10 } },
           find_files = { theme = 'ivy', disable_devicons = true, layout_config = { height = 10 } },
           help_tags = { theme = 'ivy' },
@@ -481,6 +481,9 @@ require('lazy').setup({
         ts_ls = {},
         --
         -- csharp_ls = {},
+        --
+        -- java_language_server = {},
+        -- jdtls = {},
 
         lua_ls = {
           -- cmd = {...},
