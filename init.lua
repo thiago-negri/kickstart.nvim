@@ -127,7 +127,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
   callback = function()
---    vim.hl.on_yank()
+    --    vim.hl.on_yank()
     vim.hl.on_yank { timeout = 100 }
   end,
 })
@@ -728,7 +728,6 @@ require('lazy').setup({
       'folke/lazydev.nvim',
     },
     config = function()
-      -- See `:help cmp`
       local cmp = require 'blink.cmp'
       local luasnip = require 'luasnip'
       luasnip.config.setup {}
@@ -739,8 +738,9 @@ require('lazy').setup({
             luasnip.lsp_expand(args.body)
           end,
         },
-        -- TNEGRI: Disable auto-autocomplete
-        completion = { autocomplete = false, completeopt = 'menu,menuone,noinsert' },
+
+        -- TNEGRI: Disable showing the auto complete menu automatically.
+        completion = { menu = { auto_show = false } },
 
         -- For an understanding of why these mappings were
         -- chosen, you will need to read `:help ins-completion`
@@ -761,21 +761,12 @@ require('lazy').setup({
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
 
         keymap = {
-          -- 'default' (recommended) for mappings similar to built-in completions
-          --   <c-y> to accept ([y]es) the completion.
-          --    This will auto-import if your LSP supports it.
-          --    This will expand snippets if the LSP sent a snippet.
-          -- 'super-tab' for tab to accept
-          -- 'enter' for enter to accept
-          -- 'none' for no mappings
-          --
-          -- For an understanding of why the 'default' preset is recommended,
-          -- you will need to read `:help ins-completion`
-          -- Manually trigger a completion from nvim-cmp.
-          --  Generally you don't need this, because nvim-cmp will display
-          --  completions whenever it has completion options available.
           -- TNEGRI: Offer autocomplete when I press C-j
-          ['<C-j>'] = { function(cmp) cmp.show() end },
+          ['<C-j>'] = {
+            function(cmp)
+              cmp.show()
+            end,
+          },
 
           -- Think of <c-l> as moving to the right of your snippet expansion.
           --  So if you have a snippet that's like:
@@ -819,7 +810,7 @@ require('lazy').setup({
           },
           providers = {
             lazydev = { module = 'lazydev.integrations.blink', score_offset = 100 },
-            dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" },
+            dadbod = { name = 'Dadbod', module = 'vim_dadbod_completion.blink' },
           },
         },
 
@@ -837,7 +828,7 @@ require('lazy').setup({
         -- Shows a signature help window while you type arguments for a function
         signature = { enabled = true },
       }
-    end
+    end,
   },
 
   -- { -- You can easily change to a different colorscheme.
