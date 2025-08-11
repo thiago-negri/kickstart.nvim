@@ -264,6 +264,7 @@ require('lazy').setup({
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
         { '<leader>k', group = '[K]ill (Close)', mode = { 'n' } },
         { '<leader>o', group = '[O]pen (New)', mode = { 'n' } },
+        { 'gr', group = 'LSP actions', mode = { 'n' } },
       },
     },
   },
