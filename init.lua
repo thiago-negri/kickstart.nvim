@@ -5,25 +5,25 @@ vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
 
 -- Make line numbers default
---vim.opt.number = true
+vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
---vim.opt.relativenumber = true
+vim.opt.relativenumber = true
 -- TNEGRI: Disable relative line numbers when out of focus
---vim.api.nvim_create_autocmd('FocusLost', {
---  desc = 'Disable relative line numbers when out of focus',
---  group = vim.api.nvim_create_augroup('relativenumber-focus-lost', { clear = true }),
---  callback = function()
---    vim.opt.relativenumber = false
---  end,
---})
---vim.api.nvim_create_autocmd('FocusGained', {
---  desc = 'Enable relative line numbers when in focus',
---  group = vim.api.nvim_create_augroup('relativenumber-focus-gained', { clear = true }),
---  callback = function()
---    vim.opt.relativenumber = true
---  end,
---})
+vim.api.nvim_create_autocmd('FocusLost', {
+ desc = 'Disable relative line numbers when out of focus',
+ group = vim.api.nvim_create_augroup('relativenumber-focus-lost', { clear = true }),
+ callback = function()
+   vim.opt.relativenumber = false
+ end,
+})
+vim.api.nvim_create_autocmd('FocusGained', {
+ desc = 'Enable relative line numbers when in focus',
+ group = vim.api.nvim_create_augroup('relativenumber-focus-gained', { clear = true }),
+ callback = function()
+   vim.opt.relativenumber = true
+ end,
+})
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.opt.mouse = 'a'
