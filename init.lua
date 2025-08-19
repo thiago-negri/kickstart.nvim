@@ -734,12 +734,6 @@ require('lazy').setup({
       luasnip.config.setup {}
 
       cmp.setup {
-        snippet = {
-          expand = function(args)
-            luasnip.lsp_expand(args.body)
-          end,
-        },
-
         -- TNEGRI: Disable showing the auto complete menu automatically.
         completion = { menu = { auto_show = false } },
 
@@ -756,7 +750,6 @@ require('lazy').setup({
         -- <c-k>: Toggle signature help
         --
         -- See :h blink-cmp-config-keymap for defining your own keymap
-        preset = 'default',
 
         -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
         --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
