@@ -62,7 +62,7 @@ map("v", "H", "^")
 map("v", "L", "$")
 
 -- Copy current file path to system's clipboard (bc = buffer copy)
-map("n", "<leader>bc", "<cmd>let @*=@%<cr><cmd>echo 'Copied file path: ' . @%<cr>")
+map("n", "<leader>bc", "<cmd>let @*=@%<cr><cmd>echo 'Copied file path: ' . @%<cr>", { desc = '[C]opy file path' })
 
 -- Show TS highlight info under cursor
 map('n', '<F4>', '<cmd>Inspect<cr>')

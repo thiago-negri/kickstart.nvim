@@ -11,18 +11,18 @@ vim.opt.number = true
 vim.opt.relativenumber = true
 -- TNEGRI: Disable relative line numbers when out of focus
 vim.api.nvim_create_autocmd('FocusLost', {
- desc = 'Disable relative line numbers when out of focus',
- group = vim.api.nvim_create_augroup('relativenumber-focus-lost', { clear = true }),
- callback = function()
-   vim.opt.relativenumber = false
- end,
+  desc = 'Disable relative line numbers when out of focus',
+  group = vim.api.nvim_create_augroup('relativenumber-focus-lost', { clear = true }),
+  callback = function()
+    vim.opt.relativenumber = false
+  end,
 })
 vim.api.nvim_create_autocmd('FocusGained', {
- desc = 'Enable relative line numbers when in focus',
- group = vim.api.nvim_create_augroup('relativenumber-focus-gained', { clear = true }),
- callback = function()
-   vim.opt.relativenumber = true
- end,
+  desc = 'Enable relative line numbers when in focus',
+  group = vim.api.nvim_create_augroup('relativenumber-focus-gained', { clear = true }),
+  callback = function()
+    vim.opt.relativenumber = true
+  end,
 })
 
 -- Enable mouse mode, can be useful for resizing splits for example!
@@ -217,12 +217,19 @@ require('lazy').setup({
     'folke/which-key.nvim',
     event = 'VimEnter', -- Sets the loading event to 'VimEnter'
     opts = {
+      -- TNEGRI: which-key as a pop-up at the bottom right
+      preset = 'helix',
+
       -- delay between pressing a key and opening which-key (milliseconds)
       -- this setting is independent of vim.o.timeoutlen
       delay = 300,
       icons = {
         -- set icon mappings to true if you have a Nerd Font
-        mappings = vim.g.have_nerd_font,
+
+        -- TNEGRI: No icons for entries
+        -- mappings = vim.g.have_nerd_font,
+        mappings = false,
+
         -- If you are using a Nerd Font: set icons.keys to an empty table which will use the
         -- default which-key.nvim defined Nerd Font icons, otherwise define a string table
         keys = vim.g.have_nerd_font and {} or {
@@ -265,6 +272,7 @@ require('lazy').setup({
         { '<leader>k', group = '[K]ill (Close)', mode = { 'n' } },
         { '<leader>o', group = '[O]pen (New)', mode = { 'n' } },
         { 'gr', group = 'LSP actions', mode = { 'n' } },
+        { '<leader>b', group = '[B]uffer', mode = { 'n' } },
       },
     },
   },
