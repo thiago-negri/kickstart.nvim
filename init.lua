@@ -897,83 +897,83 @@ require('lazy').setup({
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
-      -- -- Simple and easy statusline.
-      -- --  You could remove this setup call if you don't like it,
-      -- --  and try some other statusline plugin
-      -- local statusline = require 'mini.statusline'
-      -- -- set use_icons to true if you have a Nerd Font
-      -- statusline.setup {
-      --   use_icons = true,
-      --   -- TNEGRI: content.active removed diff, diagnostics, lsp, and moved git branch to right
-      --   content = {
-      --     active = function()
-      --       local mode, mode_hl = MiniStatusline.section_mode { trunc_width = 120 }
-      --       local git = MiniStatusline.section_git { trunc_width = 40 }
-      --       -- local diff = MiniStatusline.section_diff { trunc_width = 75 }
-      --       -- local diagnostics = MiniStatusline.section_diagnostics { trunc_width = 75 }
-      --       -- local lsp = MiniStatusline.section_lsp { trunc_width = 75 }
-      --       local filename = MiniStatusline.section_filename { trunc_width = 140 }
-      --       local fileinfo = MiniStatusline.section_fileinfo { trunc_width = 120 }
-      --       local location = MiniStatusline.section_location { trunc_width = 75 }
-      --       local search = MiniStatusline.section_searchcount { trunc_width = 75 }
-      --
-      --       -- Usage of `MiniStatusline.combine_groups()` ensures highlighting and
-      --       -- correct padding with spaces between groups (accounts for 'missing'
-      --       -- sections, etc.)
-      --       return MiniStatusline.combine_groups {
-      --         { hl = mode_hl, strings = { mode } },
-      --         -- { hl = 'MiniStatuslineDevinfo', strings = { git, diff, diagnostics, lsp } },
-      --         '%<', -- Mark general truncate point
-      --         { hl = 'MiniStatuslineFilename', strings = { filename } },
-      --         '%=', -- End left alignment
-      --         { hl = 'MiniStatuslineDevinfo', strings = { git } },
-      --         { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
-      --         { hl = mode_hl, strings = { search, location } },
-      --       }
-      --     end,
-      --   },
-      -- }
-      --
-      -- -- You can configure sections in the statusline by overriding their
-      -- -- default behavior. For example, here we set the section for
-      -- -- cursor location to LINE:COLUMN
-      -- ---@diagnostic disable-next-line: duplicate-set-field
-      -- statusline.section_location = function()
-      --   return '%2l:%-2v'
-      -- end
-      -- -- TNEGRI: Removed file size
-      -- ---@diagnostic disable-next-line: duplicate-set-field
-      -- statusline.section_fileinfo = function(args)
-      --   local filetype = vim.bo.filetype
-      --
-      --   -- Don't show anything if there is no filetype
-      --   if filetype == '' then
-      --     return ''
-      --   end
-      --
-      --   -- Add filetype icon
-      --   local devicons = require 'nvim-web-devicons'
-      --   filetype = devicons.get_icon(vim.fn.expand '%:t', nil, { default = true }) .. ' ' .. filetype
-      --
-      --   -- Construct output string if truncated or buffer is not normal
-      --   if MiniStatusline.is_truncated(args.trunc_width) or vim.bo.buftype ~= '' then
-      --     return filetype
-      --   end
-      --
-      --   -- Construct output string with extra file info
-      --   local encoding = vim.bo.fileencoding or vim.bo.encoding
-      --   local format = vim.bo.fileformat
-      --
-      --   return string.format('%s %s[%s]', filetype, encoding, format)
-      -- end
-      -- -- TNEGRI: Always use short name '%f'
-      -- ---@diagnostic disable-next-line: duplicate-set-field
-      -- statusline.section_filename = function()
-      --   return '%f%m%r'
-      -- end
-      --
-      -- -- ... and there is more!
-      -- --  Check out: https://github.com/echasnovski/mini.nvim
+      -- Simple and easy statusline.
+      --  You could remove this setup call if you don't like it,
+      --  and try some other statusline plugin
+      local statusline = require 'mini.statusline'
+      -- set use_icons to true if you have a Nerd Font
+      statusline.setup {
+        use_icons = false,
+        -- TNEGRI: content.active removed diff, diagnostics, lsp, and moved git branch to right
+        content = {
+          active = function()
+            local mode, mode_hl = MiniStatusline.section_mode { trunc_width = 120 }
+            local git = MiniStatusline.section_git { trunc_width = 40 }
+            -- local diff = MiniStatusline.section_diff { trunc_width = 75 }
+            -- local diagnostics = MiniStatusline.section_diagnostics { trunc_width = 75 }
+            -- local lsp = MiniStatusline.section_lsp { trunc_width = 75 }
+            local filename = MiniStatusline.section_filename { trunc_width = 140 }
+            local fileinfo = MiniStatusline.section_fileinfo { trunc_width = 120 }
+            local location = MiniStatusline.section_location { trunc_width = 75 }
+            local search = MiniStatusline.section_searchcount { trunc_width = 75 }
+
+            -- Usage of `MiniStatusline.combine_groups()` ensures highlighting and
+            -- correct padding with spaces between groups (accounts for 'missing'
+            -- sections, etc.)
+            return MiniStatusline.combine_groups {
+              { hl = mode_hl, strings = { mode } },
+              -- { hl = 'MiniStatuslineDevinfo', strings = { git, diff, diagnostics, lsp } },
+              '%<', -- Mark general truncate point
+              { hl = 'MiniStatuslineFilename', strings = { filename } },
+              '%=', -- End left alignment
+              { hl = 'MiniStatuslineDevinfo', strings = { git } },
+              { hl = 'MiniStatuslineFileinfo', strings = { fileinfo } },
+              { hl = mode_hl, strings = { search, location } },
+            }
+          end,
+        },
+      }
+
+      -- You can configure sections in the statusline by overriding their
+      -- default behavior. For example, here we set the section for
+      -- cursor location to LINE:COLUMN
+      ---@diagnostic disable-next-line: duplicate-set-field
+      statusline.section_location = function()
+        return '%2l:%-2v'
+      end
+      -- TNEGRI: Removed file size
+      ---@diagnostic disable-next-line: duplicate-set-field
+      statusline.section_fileinfo = function(args)
+        local filetype = vim.bo.filetype
+
+        -- Don't show anything if there is no filetype
+        if filetype == '' then
+          return ''
+        end
+
+        -- Add filetype icon
+        local devicons = require 'nvim-web-devicons'
+        filetype = devicons.get_icon(vim.fn.expand '%:t', nil, { default = true }) .. ' ' .. filetype
+
+        -- Construct output string if truncated or buffer is not normal
+        if MiniStatusline.is_truncated(args.trunc_width) or vim.bo.buftype ~= '' then
+          return filetype
+        end
+
+        -- Construct output string with extra file info
+        local encoding = vim.bo.fileencoding or vim.bo.encoding
+        local format = vim.bo.fileformat
+
+        return string.format('%s %s[%s]', filetype, encoding, format)
+      end
+      -- TNEGRI: Always use short name '%f'
+      ---@diagnostic disable-next-line: duplicate-set-field
+      statusline.section_filename = function()
+        return '%f%m%r'
+      end
+
+      -- ... and there is more!
+      --  Check out: https://github.com/echasnovski/mini.nvim
     end,
   },
   { -- Highlight, edit, and navigate code

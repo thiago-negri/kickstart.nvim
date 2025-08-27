@@ -8,7 +8,10 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.opt.guicursor = 'a:block-nCursor'
-vim.opt.laststatus = 0
+
+-- Hide statusline
+vim.opt.laststatus = 2
+
 -- vim.opt.colorcolumn = '80'
 
 -- Force use '/' as path separator, because we're running vim inside msys
