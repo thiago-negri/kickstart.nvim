@@ -3,6 +3,7 @@
 --
 -- See the kickstart.nvim README for more information
 
+vim.o.winborder = "rounded"
 vim.opt.tabstop = 8
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
@@ -56,16 +57,16 @@ map('n', 'g*', 'g*zz')
 map('n', 'g#', 'g#zz')
 
 -- Duplicate a line and comment out the first line
-map("n", "yc", "yy<CMD>normal gcc<CR>p")
+map('n', 'yc', 'yy<CMD>normal gcc<CR>p')
 
 -- Home/End as H and L
-map("n", "H", "^")
-map("n", "L", "$")
-map("v", "H", "^")
-map("v", "L", "$")
+map('n', 'H', '^')
+map('n', 'L', '$')
+map('v', 'H', '^')
+map('v', 'L', '$')
 
 -- Copy current file path to system's clipboard (bc = buffer copy)
-map("n", "<leader>bc", "<cmd>let @*=@%<cr><cmd>echo 'Copied file path: ' . @%<cr>", { desc = '[C]opy file path' })
+map('n', '<leader>bc', "<cmd>let @*=@%<cr><cmd>echo 'Copied file path: ' . @%<cr>", { desc = '[C]opy file path' })
 
 -- Show TS highlight info under cursor
 map('n', '<F4>', '<cmd>Inspect<cr>')
@@ -74,11 +75,11 @@ map('n', '<F4>', '<cmd>Inspect<cr>')
 map('n', '<F5>', '<cmd>make<cr>')
 
 -- Git Commit overrides
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
+vim.api.nvim_create_autocmd({ 'BufEnter' }, {
   pattern = {
-    "*.git/COMMIT_EDITMSG",
+    '*.git/COMMIT_EDITMSG',
   },
-  command = "set cc=50,72",
+  command = 'set cc=50,72',
 })
 
 -- Create an augroup for TypeScript compilation settings
@@ -102,4 +103,3 @@ vim.o.exrc = true
 vim.o.secure = true
 
 return {}
-
