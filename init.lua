@@ -894,10 +894,6 @@ require('lazy').setup({
           return ''
         end
 
-        -- Add filetype icon
-        local devicons = require 'nvim-web-devicons'
-        filetype = devicons.get_icon(vim.fn.expand '%:t', nil, { default = true }) .. ' ' .. filetype
-
         -- Construct output string if truncated or buffer is not normal
         if MiniStatusline.is_truncated(args.trunc_width) or vim.bo.buftype ~= '' then
           return filetype
